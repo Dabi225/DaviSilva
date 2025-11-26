@@ -1,0 +1,9 @@
+nav {
+    height: 100%;
+    border: 1px solid blue;
+    display: flex;
+    background-color: whitesmoke;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+}
