@@ -1,5 +1,6 @@
 import { produto } from "../../../database/tabelas/tab_produto";
 import {redirect} from 'next/navigation';
+import "../../css/tables.css"
 
 async function removeProduto(formData){
     'use server';
@@ -16,7 +17,7 @@ async function Produtos(){
         <>
             <h1>Produtos</h1>
             <a href='/produto/criar'>+ Colocar novo produto</a>
-            <table border='1'>
+            <table>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -43,7 +44,7 @@ async function Produtos(){
                                         </form>
                                         <form action={removeProduto}>
                                             <input type='hidden' name='id' defaultValue={prod.id}/><br />
-                                            <button>Deletar</button>
+                                            <button>&#10006;</button>
                                         </form>
                                     </td>
                                 </tr>

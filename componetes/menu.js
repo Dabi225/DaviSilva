@@ -14,6 +14,7 @@ function Menu(){
             <a href="/endereco/novo"> Endereco </a>
             <a href="/pag/novo"> Pagamentos </a>
             <a href="/produto/novo"> Produtos </a>
+            <a href="/carrinho/novo">Carrinho</a>
                 </ul>
             </div>
             </nav>
@@ -21,5 +22,4 @@ function Menu(){
     );
 }
 
-export default Menu;
-//aavenidapaulista
+export default Menu

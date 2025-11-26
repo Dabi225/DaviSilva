@@ -1,6 +1,6 @@
 import {produto} from '../../../database/tabelas/tab_produto';
 import {redirect} from 'next/navigation';
-import "../../css/tables.css";
+import "../../css/cadastro.css";
 
 function TelaNovoProduto() {
     return (
