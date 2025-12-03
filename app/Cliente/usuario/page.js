@@ -1,5 +1,12 @@
 import { Cliente } from "../../../database/tabelas/tab_cliente";
 
+async function removeCliente(){
+    'use server';
+    const id = formData.get('id');
+    const cli = await produto.findByPk(id);
+    await cli.destroy();
+    redirect('/cliente/usuario');
+}
 async function Clientes(){
     const cliente = await Cliente.findAll();
     console.log(cliente);
@@ -29,6 +36,20 @@ async function Clientes(){
                                     <td>{new Date(cli.data_nascimento).toLocaleDateString()}</td>
                                     <td>{cli.email}</td>
                                     <td>{cli.telefone}</td>
+                                    <td>
+                                        <form action={'../../endereco/novo'}>
+                                            <input type='hidden' name="id" defaultValue={cli.id}/>
+                                            <button>Endereço</button>
+                                            </form>
+                                    <form action={'/cliente/edita/'}>
+                                            <input type='hidden' name='id' defaultValue={cli.id}/>
+                                            <button>Editar</button>     
+                                        </form>
+                                        <form action={removeCliente}>
+                                            <input type='hidden' name='id' defaultValue={cli.id}/><br />
+                                            <button>&#10006;</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             );
                         })

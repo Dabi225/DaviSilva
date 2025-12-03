@@ -34,7 +34,7 @@ async function insereEndereco(formData){
         Estado: formData.get('Estado')
     };
      await endereco.create(dados);
-    redirect('/endereco/novo');
+    redirect('../../Cliente/usuario');
 }
 
 export default TelaNovoEndereco;

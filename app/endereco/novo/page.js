@@ -1,12 +1,14 @@
 import { endereco } from "../../../database/tabelas/tab_endereco";
 
 async function Endereco(){
-    const end = await endereco.findAll();
+    'use server'
+    const id = FormData.get('cli.id');
+    const end = await endereco.findByPk(cli.id);
     console.log(end);
     return(
         <>
             <h1>Endereco</h1>
-            <a href='/endereco/criar'>+ Coloque Endereco</a>
+
             <table border='1'>
                 <thead>
                     <tr>
@@ -33,6 +35,7 @@ async function Endereco(){
                     }
                 </tbody>
             </table>
+            <a href='../../Cliente/usuario'>Voltar</a>
         </>
     )
 }

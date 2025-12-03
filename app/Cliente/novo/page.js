@@ -21,7 +21,7 @@ function TelaNovoCliente() {
         <label htmlFor='telefone'>Telefone</label><br />
         <input type='text' name='telefone' /><br />
   
-        <button>Cadastrar</button>
+        <button>Continuar</button>
         </form>
         
         </>
@@ -38,7 +38,7 @@ async function insereCliente(formData){
         telefone: formData.get('telefone')
     };
     await Cliente.create(dados);
-    redirect('/Cliente/usuario');
+    redirect('../../endereco/criar');
 }
 
 export default TelaNovoCliente;

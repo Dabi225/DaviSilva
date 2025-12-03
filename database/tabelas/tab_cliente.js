@@ -2,7 +2,6 @@ import { DataTypes } from "sequelize";
 import mysql from '../mysql';
 
 const Cliente = mysql.define('cliente',{
-    id_cliente: DataTypes.INTEGER,
     nome: DataTypes.STRING,
     cpf: DataTypes.STRING,
     data_nascimento: DataTypes.DATE,
