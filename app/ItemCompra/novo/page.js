@@ -3,7 +3,7 @@ import {redirect} from 'next/navigation';
 
 async function Remover(formData){
     'use server'
-    const id = FormData.get(id);
+    const id = formData.get('id');
     const ICom = await ItemCompra.findByPk(id);
     await ICom.destroy();
     redirect('/ItemCompra/novo');
@@ -14,7 +14,7 @@ async function itemcompra(){
     return(
         <>
             <h1>Items da Compra</h1>
-            <a href='ItemCompra/criar'>+ Colocar mais Produtos</a>
+            <a href='/ItemCompra/criar'>+ Colocar mais Produtos</a>
             <table border='1'>
                 <thead>
                     <tr>
@@ -36,7 +36,7 @@ async function itemcompra(){
                                     <td>{ICom.quantidade}</td>
                                     <td>{ICom.preco_un}</td>
                                     <td>
-                                        <form action={'ItemCompra/edita'}>
+                                        <form action={'/ItemCompra/editar'}>
                                         <input  type='hidden' name='id' defaultValue={ICom.id}/>
                                         <button>Editar</button>
                                         </form>
