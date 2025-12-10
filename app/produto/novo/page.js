@@ -16,7 +16,8 @@ async function Produtos(){
     return(
         <>
             <h1>Produtos</h1>
-            <a href='/produto/criar'>+ Colocar novo produto</a>
+            <a href='/produto/criar'>+ Colocar novo produto</a><br />
+            <a href='/Categoria/novo'> Verificar categorias </a>
             <table>
                 <thead>
                     <tr>

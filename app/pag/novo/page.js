@@ -1,4 +1,13 @@
 import { Pagamentos } from "../../../database/tabelas/tab_pagamento.js";
+import { redirect } from "next/navigation";
+
+async function Cancelamento(formData){
+    'use server'
+    const id = FormData.get('id');
+    const pag = await pagamento.findByPk(id);
+    await pag.destroy();
+    redirect('/pag/novo');
+}
 
 async function Pagamento(){
     const pag = await Pagamentos.findAll();
@@ -6,7 +15,8 @@ async function Pagamento(){
     return(
         <>
             <h1>Pagamento</h1>
-            <a href='/pag/criar'>+ Colocar Novo Pagamento</a>
+            <a href='/pag/criar'>+ Colocar Novo Pagamento</a><br />
+            <a href='/ItemCompra/novo'> Verificar itens</a>
             <table border='1'>
                 <thead>
                     <tr>
@@ -31,6 +41,10 @@ async function Pagamento(){
                                         <form action={'/pag/edita'}>
                                             <input type='hidden' name='id' defaultValue={pag.id}/>
                                             <button>Editar</button>
+                                        </form>
+                                        <form action={Cancelamento}>
+                                            <input type="hidden" name='id' defaultValue={pag.id}/>
+                                            <button>Cancelar</button>
                                         </form>
                                     </td>
                                 </tr>

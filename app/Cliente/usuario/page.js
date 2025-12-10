@@ -13,7 +13,8 @@ async function Clientes(){
     return(
         <>
             <h1>Clientes</h1>
-            <a href='/Cliente/novo'>+ Criar um novo cliente</a>
+            <a href='/Cliente/novo'>+ Criar um novo cliente</a><br />
+            <a href='/endereco/novo'>Entrar em endereço</a>
             <table border='1'>
                 <thead>
                     <tr>
@@ -37,11 +38,7 @@ async function Clientes(){
                                     <td>{cli.email}</td>
                                     <td>{cli.telefone}</td>
                                     <td>
-                                        <form action={'../../endereco/novo'}>
-                                            <input type='hidden' name="id" defaultValue={cli.id}/>
-                                            <button>Endereço</button>
-                                            </form>
-                                    <form action={'/cliente/edita/'}>
+                                    <form action={'/Cliente/edita/'}>
                                             <input type='hidden' name='id' defaultValue={cli.id}/>
                                             <button>Editar</button>     
                                         </form>
